@@ -1,7 +1,19 @@
-import { Counter } from '../index';
+import { printOneToHundred } from '../index';
 
-test('count 1 to 100', () => {
-  const arr1_100 = Array.from(new Array(100)).map((v,i)=> i + 1);
-  const counter = new Counter()
-  expect(JSON.stringify(counter.oneToHundred())).toBe(JSON.stringify(arr1_100));
+
+describe('1から100を出力', () => {
+    test('count 1 to 100', () => {
+      const spyLog = jest.spyOn(console, 'log')
+      printOneToHundred()
+
+   　 const arg = spyLog.mock.calls.map((arr) => arr[0])
+      expect(spyLog.mock.calls.every((arg) => arg.length === 1)).toBeTruthy()
+
+      const arr = Array.from(Array(100).keys()).map((i) => i+1);
+      expect(arg).toEqual(arr)
+
+    spyLog.mockReset()
+    spyLog.mockRestore()
+  });
 });
+

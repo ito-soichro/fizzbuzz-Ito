@@ -1,14 +1,9 @@
-export class Counter {
-  oneToHundred(): number[]{
-    let num = [];
-    for (let i = 1; i <= 100; i++) {
-      console.log(i);
-      num.push(i);
-    };
-    return num;
-  };
-};
+export function printOneToHundred() {
+  let num: number;
+  for( num = 1; num <= 100; num++){
+    console.log(num);
+  }
+ 
+}
+printOneToHundred();
 
-let counter = new Counter();
-
-counter.oneToHundred();
