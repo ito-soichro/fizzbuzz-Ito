@@ -1,22 +1,31 @@
 import { printOneToHundred } from '../index';
 
 const spyLog = jest.spyOn(console, 'log')
-const array = spyLog.mock.calls
+// const array = spyLog.mock.calls
 
 printOneToHundred()
 
+ // 全部を配列に詰め直してみます
+ const actual = spyLog.mock.calls.map((arr) => arr[0])
+
 describe('1から100を出力', () => {
   test('count 1 to 100', () => {
-    
-    expect(array).toHaveLength(100)
-    expect(array[0][0]).toBe(1)
-    expect(array[array.length-1][0]).toBe(100)
-    expect(typeof array).toEqual('object')
+    // 要素数は100
+    expect(actual).toHaveLength(100)
+     // 一意な要素数も100
+    expect(Math.max(...actual)).toBe(100)
+    // 最小は0
+    expect(Math.min(...actual)).toBe(1)
+    // 最大は100
+    expect(new Set(actual).size).toBe(100)
+    // 全部整数
+    expect(actual.every((arg) => Number.isInteger(arg))).toBeTruthy()
+    // 昇順ソートされている
+    expect(actual).toEqual(actual.slice().sort((a, b) => a - b))
 
-    let array2 = new Set(array);
-    expect(array2.size).toEqual(array.length)
+
 
     spyLog.mockReset()
     spyLog.mockRestore()
   });
-});
+})
