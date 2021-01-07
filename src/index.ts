@@ -3,7 +3,7 @@ export function printOneToHundred() {
   for( num = 1; num <= 100; num++){
     console.log(num);
   }
- 
 }
 printOneToHundred();
+
 
