@@ -1,19 +1,30 @@
-import { printOneToHundred } from '../index';
+import { fizzBuzz } from '../index';
 
+describe('1から100を出力-３の倍数の時fizz-5の倍数の時buzz-３と５の倍数の時fizzBuzz', () => {
 
-describe('1から100を出力', () => {
-    test('count 1 to 100', () => {
-      const spyLog = jest.spyOn(console, 'log')
-      printOneToHundred()
+  test('check of Array', () => {
+    const spyLog = jest.spyOn(console, 'log')
+    fizzBuzz()
+    const array = spyLog.mock.calls
+    expect(array.sort()).toEqual(array.slice().sort())
 
-   　 const arg = spyLog.mock.calls.map((arr) => arr[0])
-      expect(spyLog.mock.calls.every((arg) => arg.length === 1)).toBeTruthy()
+  spyLog.mockReset()
+  spyLog.mockRestore()
+});
 
-      const arr = Array.from(Array(100).keys()).map((i) => i+1);
-      expect(arg).toEqual(arr)
-
-    spyLog.mockReset()
-    spyLog.mockRestore()
+  test('3multiple-Fizz_5multiple-Buzz_3&5multiple-FizzBuzz', () => {
+    const array = fizzBuzz()
+    for( let i = 1; i <= 100; i++ ){
+      if(i % 3 == 0 && i % 5 == 0){
+        expect(array[i-1]).toBe('Fizz Buzz');
+      } else if(i % 5 == 0){
+        expect(array[i-1]).toBe('Buzz');
+      } else if(i % 3 == 0 ){
+        expect(array[i-1]).toBe('Fizz');
+      }else{
+        expect(typeof array[i-1]).toBe('number');
+      }
+    }
   });
 });
 
