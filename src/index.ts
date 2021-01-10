@@ -12,10 +12,11 @@ export function fizzBuzz() {
         arr.push(num);
     }
   }
-   return arr;
+  return arr;
 }
 
-console.log(fizzBuzz());
+const result = fizzBuzz().toString()
+console.log(result);
 
 
 
