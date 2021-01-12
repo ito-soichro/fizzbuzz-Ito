@@ -17,11 +17,8 @@ export function printOneToHundred() {
   for(let i = 1; i <= 100; i++){
     str += `${fizzbuzz(i)},`;
   }
-  return str;
-}
-export function result() {
-  let result = printOneToHundred().slice(0, -1);
-   return result;
+  let result = str.slice(0, -1);
+  return result;
 }
 
-console.log(result())
+console.log(printOneToHundred())
