@@ -1,22 +1,27 @@
 
-export function fizzBuzz() {
-  let arr:Array< string | number > = [];
-  for( let num: number = 1; num <= 100; num++){
-    if(num % 3 == 0 && num % 5 == 0){
-        arr.push('Fizz Buzz');
-      } else if(num % 5 == 0){
-        arr.push('Buzz');
-      } else if(num % 3 == 0 ){
-        arr.push('Fizz');
-      }else{
-        arr.push(num);
-    }
+export function fizzbuzz(num: number): string {
+  let fb;
+  if(num % 15 === 0 ){
+    fb = 'Fizz Buzz'
+  }else if(num % 5 === 0) {
+    fb = 'Buzz'
+  }else if(num % 3 === 0) {
+    fb = 'Fizz'
+  }else{
+    fb = num.toString()
   }
-  return arr;
+  return fb;
+}
+export function printOneToHundred() {
+  let str: string = '';
+  for(let i = 1; i <= 100; i++){
+    str += `${fizzbuzz(i)},`;
+  }
+  return str;
+}
+export function result() {
+  let result = printOneToHundred().slice(0, -1);
+   return result;
 }
 
-const result = fizzBuzz().toString()
-console.log(result);
-
-
-
+console.log(result())
