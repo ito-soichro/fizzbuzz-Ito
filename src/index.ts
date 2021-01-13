@@ -1,5 +1,5 @@
 
-export function fizzbuzz(num: number): string {
+export function printFizzBuzz(num: number): string {
   let fb;
   if(num % 15 === 0 ){
     fb = 'Fizz Buzz'
@@ -15,7 +15,7 @@ export function fizzbuzz(num: number): string {
 export function printOneToHundred() {
   let str: string = '';
   for(let i = 1; i <= 100; i++){
-    str += `${fizzbuzz(i)},`;
+    str += `${printFizzBuzz(i)},`;
   }
   let result = str.slice(0, -1);
   return result;

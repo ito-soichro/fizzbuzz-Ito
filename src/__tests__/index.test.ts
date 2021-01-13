@@ -1,28 +1,28 @@
-import { fizzbuzz } from '../index';
+import { printFizzBuzz } from '../index';
 import { printOneToHundred } from '../index';
 describe('1から100を出力', () => {
   test('FizzBuzz must be output when it is a multiple of 15.', () => {
     [15, 45, 90].forEach(number => {
-      expect(fizzbuzz(number)).toBe('Fizz Buzz');
+      expect(printFizzBuzz(number)).toBe('Fizz Buzz');
     });
     [3, 10, 85].forEach(number => {
-      expect(fizzbuzz(number)).not.toBe('Fizz Buzz');
+      expect(printFizzBuzz(number)).not.toBe('Fizz Buzz');
     });
   });
   test('Buzz must be output when it is a multiple of 5.', () => {
     [5, 10, 100].forEach(number => {
-      expect(fizzbuzz(number)).toBe('Buzz');
+      expect(printFizzBuzz(number)).toBe('Buzz');
     });
     [3, 15, 90].forEach(number => {
-      expect(fizzbuzz(number)).not.toBe('Buzz');
+      expect(printFizzBuzz(number)).not.toBe('Buzz');
     });
 });
   test('Fizz must be output when it is a multiple of 3.', () => {
     [3, 6, 99].forEach(number => {
-      expect(fizzbuzz(number)).toBe('Fizz');
+      expect(printFizzBuzz(number)).toBe('Fizz');
     });
     [5, 15, 90].forEach(number => {
-      expect(fizzbuzz(number)).not.toBe('Fizz');
+      expect(printFizzBuzz(number)).not.toBe('Fizz');
     });
   });
 
