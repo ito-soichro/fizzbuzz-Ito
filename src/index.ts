@@ -1,24 +1,30 @@
-
-export function printFizzBuzz(num: number): string {
-  let fb;
+export const printFizzBuzz = (num:any) =>  {
+  let fizzbuzz: any;
   if(num % 15 === 0 ){
-    fb = 'Fizz Buzz'
-  }else if(num % 5 === 0) {
-    fb = 'Buzz'
-  }else if(num % 3 === 0) {
-    fb = 'Fizz'
-  }else{
-    fb = num.toString()
+    return fizzbuzz = 'Fizz Buzz';
   }
-  return fb;
+  if(num % 5 === 0) {
+    return fizzbuzz = 'Buzz';
+  }
+  if(num % 3 === 0) {
+    return fizzbuzz = 'Fizz';
+  }
+  if(num % 15 != 0 && num % 5 != 0 && num % 3 != 0  ){
+    return fizzbuzz = num;
+  }  
 }
-export function printOneToHundred() {
-  let str: string = '';
+
+export const printOneToHundred = () => {
+  const arr: Array< number | string > = [];
   for(let i = 1; i <= 100; i++){
-    str += `${printFizzBuzz(i)},`;
+    arr.push(printFizzBuzz(i))
   }
-  let result = str.slice(0, -1);
+  return arr;
+}
+
+export const printResult = () => {
+  const result: string = printOneToHundred().join();
   return result;
 }
 
-console.log(printOneToHundred())
+console.log(printResult())
