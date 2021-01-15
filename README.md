@@ -6,7 +6,7 @@
 1から100を標準出力、ただし3の倍数なら｢Fizz｣ 5の倍数なら｢Buzz｣ 両方の倍数なら｢Fizz Buzz｣と標準出力(それぞれカンマで区切ること)
 例)1,2,Fizz,4,Buzz,.....14,Fizz Buzz,16,...Buzz
 
-## 実装
+## 処理実行
 
 '''
 $ yarn start
@@ -15,6 +15,8 @@ $ yarn start
 
 yarnのインストールについては、こちらをご参照ください。
 https://jsstudy.hatenablog.com/entry/How-to-install-Yarn
+
+## テスト実行
 
 '''
 $ npm t
